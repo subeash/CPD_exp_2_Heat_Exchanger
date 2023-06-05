@@ -1,76 +1,97 @@
 
 
-let numProfileVars = 2;
-let numProfilePts = 100;
+let plotInfo = {
 
+  initialize : function() {
 
-let numStripVars = 0;
-let numStripPts = 0;
+    let unum = 0; 
 
-
-let plotsObj = new Object();
-
-
-
-plotsObj[0] = new Object();
-plotsObj[0]['name'] = 'Reactor Concentrations';
-plotsObj[0]['type'] = 'profile';
-plotsObj[0]['canvas'] = '#div_PLOTDIV_conc_plot';
-plotsObj[0]['numberPoints'] = numProfilePts;
-
-plotsObj[0]['xAxisLabel'] = 'time';
-plotsObj[0]['xAxisMin'] = 0;
-plotsObj[0]['xAxisMax'] = 100;
-plotsObj[0]['xAxisReversed'] = 0; 
-plotsObj[0]['yLeftAxisLabel'] = 'concentration';
-plotsObj[0]['yLeftAxisMin'] = 0;
-plotsObj[0]['yLeftAxisMax'] = 1;
-plotsObj[0]['yRightAxisLabel'] = '';
-plotsObj[0]['yRightAxisMin'] = 0;
-plotsObj[0]['yRightAxisMax'] = 1;
-plotsObj[0]['plotLegendShow'] = false; 
-plotsObj[0]['plotLegendPosition'] = 'ne';
-plotsObj[0]['var'] = new Array();
-  plotsObj[0]['var'][0] = 1; 
-  plotsObj[0]['var'][1] = 0; 
-plotsObj[0]['varLabel'] = new Array();
-  plotsObj[0]['varLabel'][0] = 'product';
-  plotsObj[0]['varLabel'][1] = 'reactant';
-plotsObj[0]['varShow'] = new Array();
-  plotsObj[0]['varShow'][0] = 'show'; 
-  plotsObj[0]['varShow'][1] = 'show';
-plotsObj[0]['varYaxis'] = new Array();
-  plotsObj[0]['varYaxis'][0] = 'left'; 
-  plotsObj[0]['varYaxis'][1] = 'left';
-plotsObj[0]['varYscaleFactor'] = new Array();
-  plotsObj[0]['varYscaleFactor'][0] = 1; 
-  plotsObj[0]['varYscaleFactor'][1] = 1;
-
-
-let npl = Object.keys(plotsObj).length; 
-let p; 
-let plotFlag = [0];
-for (p = 1; p < npl; p += 1) {
-  plotFlag.push(0);
-}
-
-function initPlotData(numVar,numPlotPoints) {
- 
-  let v;
-  let p;
-  let plotDataStub = new Array();
-  for (v = 0; v < numVar; v += 1) {
-    plotDataStub[v] = new Array();
-    for (p = 0; p <= numPlotPoints; p += 1) { 
-      plotDataStub[v][p] = new Array();
-      plotDataStub[v][p][0] = 0;
-      plotDataStub[v][p][1] = 0;
-    }
-  }
-  return plotDataStub;
+    
+    let pnum = 0;
+    plotInfo[pnum] = new Object();
+    plotInfo[pnum]['type'] = 'profile';
+    plotInfo[pnum]['title'] = 'Heat Exchanger Temperature Profiles';
+    plotInfo[pnum]['canvas'] = '#div_PLOTDIV_T_plot'; 
+    
+    plotInfo[pnum]['numberPoints'] = processUnits[unum]['numNodes']; 
+    
+    plotInfo[pnum]['xAxisLabel'] = 'Position in Exchanger';
+    plotInfo[pnum]['xAxisTableLabel'] = 'Position'; 
+    
+    plotInfo[pnum]['xAxisShow'] = 1; 
+    plotInfo[pnum]['xAxisMin'] = 0;
+    plotInfo[pnum]['xAxisMax'] = 1;
+    plotInfo[pnum]['xAxisReversed'] = 1; 
+    plotInfo[pnum]['yLeftAxisLabel'] = 'T (K)';
+    plotInfo[pnum]['yLeftAxisMin'] = processUnits[unum]['dataMin'][1]; 
+    plotInfo[pnum]['yLeftAxisMax'] = processUnits[unum]['dataMax'][0];
+    plotInfo[pnum]['yRightAxisLabel'] = 'yRight';
+    plotInfo[pnum]['yRightAxisMin'] = 0;
+    plotInfo[pnum]['yRightAxisMax'] = 1;
+    plotInfo[pnum]['plotLegendShow'] = 1;  
+    plotInfo[pnum]['plotLegendPosition'] = 'se';
+    plotInfo[pnum]['plotGridBgColor'] = 'white';
+    
+    plotInfo[pnum]['plotDataSeriesColors'] = ['#ff6347','#1e90ff']; 
+   
+    plotInfo[pnum]['varUnitIndex'] = new Array();
+    plotInfo[pnum]['var'] = new Array();
+    plotInfo[pnum]['varLabel'] = new Array();
+    plotInfo[pnum]['varDataUnits'] = new Array();
+    plotInfo[pnum]['varShow'] = new Array();
+    plotInfo[pnum]['varYaxis'] = new Array();
+    plotInfo[pnum]['varYscaleFactor'] = new Array();
+   
+    let vnum = 0; 
+    plotInfo[pnum]['varUnitIndex'][0] = unum; 
+    plotInfo[pnum]['var'][vnum] = 0; 
+    plotInfo[pnum]['varLabel'][vnum] = 'Thot';
+   
+    plotInfo[pnum]['varDataUnits'][vnum] = processUnits[unum]['dataUnits'][0]; 
+    
+    plotInfo[pnum]['varShow'][vnum] = 'show';
+    plotInfo[pnum]['varYaxis'][vnum] = 'left';
+    plotInfo[pnum]['varYscaleFactor'][vnum] = 1;
+    
+    vnum = 1; 
+    plotInfo[pnum]['varUnitIndex'][1] = unum;
+    plotInfo[pnum]['var'][vnum] = 1;
+    plotInfo[pnum]['varLabel'][vnum] = 'Tcold';
+    plotInfo[pnum]['varDataUnits'][vnum] = processUnits[unum]['dataUnits'][1];
+    plotInfo[pnum]['varShow'][vnum] = 'show';
+    plotInfo[pnum]['varYaxis'][vnum] = 'left';
+    plotInfo[pnum]['varYscaleFactor'][vnum] = 1;
+    
+    pnum = 1;
+    plotInfo[pnum] = new Object();
+    plotInfo[pnum]['type'] = 'canvas';
+    plotInfo[pnum]['title'] = 'hot side color canvas';
+    plotInfo[pnum]['canvas'] = 'canvas_CANVAS_hot'; 
+   
+    plotInfo[pnum]['varUnitIndex'] = unum; 
+    plotInfo[pnum]['var'] = 0; 
   
+    plotInfo[pnum]['varTimePts'] = processUnits[unum]['numNodes'];
+    plotInfo[pnum]['varSpacePts'] = 1;
+    plotInfo[pnum]['varValueMin'] = processUnits[unum]['dataMin'][1]; 
+    plotInfo[pnum]['varValueMax'] = processUnits[unum]['dataMax'][0]; 
+    plotInfo[pnum]['xAxisReversed'] = 1; 
+
+    pnum = 2;
+    plotInfo[pnum] = new Object();
+    plotInfo[pnum]['type'] = 'canvas';
+    plotInfo[pnum]['title'] = 'cold side color canvas';
+    plotInfo[pnum]['canvas'] = 'canvas_CANVAS_cold';
+ 
+    plotInfo[pnum]['varUnitIndex'] = unum; 
+    plotInfo[pnum]['var'] = 1; 
+    
+    plotInfo[pnum]['varTimePts'] = processUnits[unum]['numNodes'];
+    plotInfo[pnum]['varSpacePts'] = 1;
+    plotInfo[pnum]['varValueMin'] = processUnits[unum]['dataMin'][1]; 
+    plotInfo[pnum]['varValueMax'] = processUnits[unum]['dataMax'][0]; 
+    plotInfo[pnum]['xAxisReversed'] = 1; 
+
+  }, 
+
 } 
-
-
-let profileData = initPlotData(numProfileVars,numProfilePts); 
-let stripData = initPlotData(numStripVars,numStripPts); 
