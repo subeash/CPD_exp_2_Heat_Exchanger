@@ -13,6 +13,7 @@ Heat exchangers can be classified on various parameters- design and construction
  
 <img src="images/2.jpg"  style="width:500px;height:400px;"/>
 <img src="images/3.jpg"  style="width:500px;height:400px;"/>
+
 **Counter current flow-** In this setup, the hot fluid enters from one end of the exchanger and the cold from the opposite end. This results in nearly constant temperature difference between the hot and the cold fluid. This is a significant aspect and makes counter current exchangers preferable over co-current exchangers. We will discuss this point later when we talk about LMTD.
 				
 
