@@ -1,13 +1,11 @@
 ## References
 #### Books
-- B.Wayane Bequette, Process Dynamics Modeling,Analysis and Simulation, Prentice Hall PIR, New Jersey (1998).
-- Donald R.Coughnowr,Process System Analysis and Control, McGraw-Hill,Inc,International Edition (1991).
-- George Stephanopoulos, Chemical Process Control, Prentice Hall of India Private Ltd, New Delhi (1990).
-- William L.Luyben, Process Modeling Simulation and Control For Chemical Engineers, McGraw-Hill International Editions (1990).
+- B.K. Dutta, "Heat Transfer: principles and applications", Prentice Hall of India Private Ltd,New Delhi(November,2006).
+- D.Q.Kern,"Process Heat Transfer", McGraw-Hill Kogakusha Ltd,New york (April,1950).
+- J.P.Holman, "Heat Transfer", McGraw-Hill International Book Company(1983).
+- P.S.Ghoshdastidar, "Heat Transfer", OXFORD University Press(2004).
+- Warren L.McCabe,Julian C. Smith,Peter Harriot, "Unit Operation of Chemical Engineering", McGraw-Hill Companies,New York,International Edition(2005).
 
-#### Lecture Notes
-- [Example of Modeling a Stirred Tank Heater](http://nptel.ac.in/courses/103103037/3)
-#### Lecture Notes
-- [Process Control and Instrumentation](http://nptel.ac.in/courses/103105064/)
+
 
 
