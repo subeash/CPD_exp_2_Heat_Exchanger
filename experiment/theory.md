@@ -62,7 +62,7 @@ The above figure shows a 1,1 shell and tube heat exchanger. This mean that the e
 <img src="images/12.jpg"  style="width:500px;height:400px;"/>
 
 
-**Shell-** As shown in the figure, the shell is the outer casing of the heat exchanger. One fluid flows between the outer wall of the heat exchanger and inner wall of the shell while the other flows inside the tube.Shell has a circular cross section and selection of material of the shell depend upon the corrosiveness of the fluid and the working temperature and pressure.Carbon steel is a common material for the shell under moderate working conditions.
+**Shell-** As shown in the figure, the shell is the outer casing of the heat exchanger. One fluid flows between the outer wall of the heat exchanger and inner wall of the shell while the other flows inside the tube.Shell has a circular cross section and selection of material of the shell depend upon the corrosiveness of the fluid and the working temperature and pressure.Carbon steel is a common material for the shell under moderate working conditions. </br>
 **Baffles--** These are panels responsible for obstructing and redirecting the flow of fluid in the shell side of an exchanger. They are situated normal to the walls of the shell and force the liquid to flow at right angles to the axis of the tubes. This increases turbulence resulting in greater heat transfer. Also, the baffles help in keeping the tubes from sagging and increase the strength of the tubes by preventing their vibration.
 ### Steady State
 A situation in which all the state variables remain constant despite parallel processes trying to change them, is referred to as the steady state.
@@ -77,7 +77,7 @@ For a proper analysis of the heat exchanger, let us first define a few symbols.
 	<li>T <sub>(tube inlet) </sub>-Inlet temperature of the tube</li>
 	<li>T <sub>(tube outlet) </sub>-Outlet temperature of the tube</li>
 	<li>T <sub>(shell inlet)</sub>- Inlet temperature of the shell</li>
-	<li>`T <sub>(shell outlet)</sub>- Outlet temperature of the shell</li>
+	<li>T <sub>(shell outlet)</sub>- Outlet temperature of the shell</li>
 	<li>F-Mass flow rate of hot fluid</li>
 	<li>H-Mass flow rate of cold fluid</li>
 	<li>c <sub>(p-cold)</sub>- Specific heat of cold fluid at fixed pressure</li>
@@ -89,11 +89,14 @@ For a proper analysis of the heat exchanger, let us first define a few symbols.
 
 If we neglect heat losses to the surroundings and assume the hotter fluid to flow in the tube,</p>
 Heat lost by the hot fluid=Fc <sub>(p-hot)</sub> (T <sub>(tube inlet)</sub> -T <sub>(tube outlet)</sub>)</p>  
-Heat gained by the cold fluid= `Hc<sub>(p-cold)</sub> (T<sub>(shell inlet)</sub>-T<sub>(shell outlet)</sub>)</p> 
+Heat gained by the cold fluid= Hc<sub>(p-cold)</sub> (T<sub>(shell inlet)</sub>-T<sub>(shell outlet)</sub>)</p> 
 Total heat transfer in the exchanger=UAΔΩ</p>
 where ΔΩ=logarithmic mean temperature difference (LMTD)</p>
 <b>Logarithmic mean temperature difference (LMTD)</b> can be defined as that temperature difference which, if constant, would give the same rate of heat transfer as actually occurs under variable conditions of temperature difference.</p>
-LMTD for a shell and heat tube exchanger, when calculated, comes out to be \frac{((T<sub>2</sub>-T<sub>1</sub>)}{ ln \frac{(T<sub>2</sub>}{T<sub>1</sub>} )}</p>
+LMTD for a shell and heat tube exchanger, when calculated, comes out to be
+
+$$\frac{(T_2-T_1)}{ ln (\frac{T_2}{T_1} )}$$ 
+
 where,</p>
 T2-Temperature difference between shell and tube temperatures at one end</p>
 T1-Temperature difference between shell and tube temperatures at the other end</p>
